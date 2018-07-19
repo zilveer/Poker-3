@@ -10,11 +10,11 @@
     "url" : "https://github.com/geobalas/Poker"
   },
   "dependencies": {
-    "express": "~3.4.7",
-    "jade": "~1.7.0",
-    "less": "~2.0.0",
-    "less-middleware": "~1.0.4",
-    "socket.io": "~1.2.0",
-    "connect": "~3.3.3"
+	  "express": "~3.21.2",
+    "jade": "~1.11.0",
+    "less": "~3.7.1",
+    "less-middleware": "~3.0.1",
+    "socket.io": "~2.1.1",
+    "connect": "~3.6.6"
   }
 }
