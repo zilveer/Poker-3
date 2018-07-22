@@ -1,14 +1,14 @@
 <div id="table-wrap">
 	<div class="modal-wrap" ng-show="buyInModalVisible">
-		<div class="modal">
+		<div class="modal" style="display:block;">
 			<form ng-submit="sitOnTheTable()">
 				<h1>{{table.name}}</h1>
 				<span class="table-requirements">Max buy-in {{table.maxBuyIn}}</span>
 				<span class="table-requirements">Min buy-in {{table.minBuyIn}}</span>
 				<span class="table-requirements">You have a total of {{$root.totalChips}} chips</span>
 				<span class="table-requirements error" ng-show="buyInError">{{buyInError}}</span>
-				<input class="input-left" type="number" ng-model="buyInAmount" ng-trim="true" required>
-				<input type="submit" value="Sit in">
+				<input class="form-control" type="number" ng-model="buyInAmount" ng-trim="true" required>
+				<input type="submit" value="Sit in" class="btn btn-primary">
 			</form>
 		</div>
 		<div id="curtain" ng-show="buyInModalVisible" ng-click="buyInModalVisible=false"></div>

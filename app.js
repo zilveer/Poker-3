@@ -1,4 +1,7 @@
 var express = require('express'),
+	favicon = require('serve-favicon'),
+	morgan = require('morgan'),
+	errorhandler = require('errorhandler'),
 	app = express(),
 	server = require('http').createServer(app),
 	io = require('socket.io').listen(server),
@@ -9,16 +12,29 @@ var express = require('express'),
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(app.router);
+
+// create "middleware"
+
+//app.use(express.favicon());
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+
+//app.use(express.logger('dev'));
+app.use(morgan('combined'))
+
+//app.use(express.bodyParser());
+//https://groups.google.com/forum/#!topic/locomotivejs/IJhJEX3rwPc
+//app.use(express.json());
+//app.use(express.urlencoded());
+
+//app.use(app.router);
 app.use(lessMiddleware(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Development Only
 if ( 'development' == app.get('env') ) {
-	app.use( express.errorHandler() );
+	//app.use( express.errorHandler() );
+	// only use in development
+	app.use(errorhandler())
 }
 
 var players = [];
@@ -76,6 +92,11 @@ app.get('/table-data/:tableId', function( req, res ) {
 
 io.sockets.on('connection', function( socket ) {
 
+	if( typeof players[socket.id] !== 'undefined' && players[socket.id].room === null ) {
+		console.info('players');
+		console.info(players);
+	}else
+		console.info('no players');
 	/**
 	 * When a player enters a room
 	 * @param object table-data
@@ -408,7 +429,7 @@ function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+tables[3] = new Table( 3, 'Sample 6-handed Private Table', eventEmitter(3), 6, 20, 10, 2000, 400, true );
 tables[0] = new Table( 0, 'Sample 10-handed Table', eventEmitter(0), 10, 2, 1, 200, 40, false );
 tables[1] = new Table( 1, 'Sample 6-handed Table', eventEmitter(1), 6, 4, 2, 400, 80, false );
 tables[2] = new Table( 2, 'Sample 2-handed Table', eventEmitter(2), 2, 8, 4, 800, 160, false );
-tables[3] = new Table( 3, 'Sample 6-handed Private Table', eventEmitter(3), 6, 20, 10, 2000, 400, true );
