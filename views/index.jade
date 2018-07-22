@@ -1,11 +1,18 @@
 html(lang="en" ng-app="app")
 	head
-		title Poker
+		title Multisig Poker
 		link(href="styles/styles.css" rel="stylesheet" type="text/css")
 	body
 		#content(ng-view)
+		
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js", integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", crossorigin="anonymous")
+		script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js", integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T", crossorigin="anonymous")
+		link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB", crossorigin="anonymous")
 		script(type="text/javascript", src="socket.io/socket.io.js")
-		script(type="text/javascript", src="js/libs/angular.min.js")
+		//#script(type="text/javascript", src="js/libs/angular.min.js")
+		script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js")
+
+		
 		script(type="text/javascript", src="js/libs/angular-route.min.js")
 		script(type="text/javascript", src="js/app.js")
 		script(type="text/javascript", src="js/controllers/lobby.js")
@@ -13,4 +20,5 @@ html(lang="en" ng-app="app")
 		script(type="text/javascript", src="js/controllers/chat.js")
 		script(type="text/javascript", src="js/services/sounds.js")
 		script(type="text/javascript", src="js/directives/seat.js")
+		script(type="text/javascript", src="assets/js/custom.js")
 			
