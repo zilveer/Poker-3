@@ -1,4 +1,7 @@
 var express = require('express'),
+	favicon = require('serve-favicon'),
+	morgan = require('morgan'),
+	errorhandler = require('errorhandler'),
 	app = express(),
 	server = require('http').createServer(app),
 	io = require('socket.io').listen(server),
@@ -9,16 +12,29 @@ var express = require('express'),
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(app.router);
+
+// create "middleware"
+
+//app.use(express.favicon());
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+
+//app.use(express.logger('dev'));
+app.use(morgan('combined'))
+
+//app.use(express.bodyParser());
+//https://groups.google.com/forum/#!topic/locomotivejs/IJhJEX3rwPc
+//app.use(express.json());
+//app.use(express.urlencoded());
+
+//app.use(app.router);
 app.use(lessMiddleware(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Development Only
 if ( 'development' == app.get('env') ) {
-	app.use( express.errorHandler() );
+	//app.use( express.errorHandler() );
+	// only use in development
+	app.use(errorhandler())
 }
 
 var players = [];
@@ -76,6 +92,11 @@ app.get('/table-data/:tableId', function( req, res ) {
 
 io.sockets.on('connection', function( socket ) {
 
+	if( typeof players[socket.id] !== 'undefined' && players[socket.id].room === null ) {
+		console.info('players');
+		console.info(players);
+	}else
+		console.info('no players');
 	/**
 	 * When a player enters a room
 	 * @param object table-data
