@@ -5,9 +5,9 @@
   "scripts": {
     "start": "node app.js"
   },
-  "repository": { 
-    "type" : "git",
-    "url" : "https://github.com/geobalas/Poker"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zilveer/Poker-3"
   },
   "dependencies": {
     "connect": "~3.6.6",
