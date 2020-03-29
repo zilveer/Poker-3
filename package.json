@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zilveer/Poker-3"
+    "url": "https://github.com/wrjlewis/Poker"
   },
   "dependencies": {
     "connect": "~3.6.6",
