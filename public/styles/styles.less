@@ -21,7 +21,7 @@ input[type="text"], input[type="number"] {
 	border: 1px solid @light-purple;
 	border-radius: 5px;
 	color: @light-purple;
-	font-size: 1.4em;
+	display: inline-block;
 }
 
 #bet-input {
@@ -35,13 +35,13 @@ input {
 }
 
 button, input[type="submit"], .button {	
-	padding: 16px;
 	background-color: rgba(0,0,0,0);
 	border: 1px solid @light-purple;
 	border-radius: 5px;
 	color: @light-purple;
-	font-size: 2em;
+	font-size: 1.34em;
 	font-weight: lighter;
+	display: inline-block;
 	&.small {
 		font-size: 1em;
 	}
@@ -82,7 +82,7 @@ a {
 #content {
 	margin: 0 auto;
 	width: 1024px;
-	height: 768px;
+	height: 900px;
 }
 
 table, tr, th, td {
@@ -200,11 +200,12 @@ div#chat {
 	div#messages {
 		border: 1px solid;
 	    border-radius: 8px;
-	    height: 120px;
+	    height: 164px;
 	    margin: 8px 8px 0 8px;
 	    background-color: #fff;
 	    padding: 8px;
-	    overflow: auto;
+		overflow: auto;
+		font-size: 0.8em;
 
 	    p {
 	    	margin: 0;
@@ -229,6 +230,7 @@ div#chat {
 		padding: 9px;
 		transform: translate(0px, -2px);
 		border-radius: 8px;
+		display: inline-block;
 	}
 }
 
@@ -607,10 +609,11 @@ div#board-wrap {
 }
 
 #to-lobby {
-	font-size: 1em;
+	font-size: 1.5em;
 	position: absolute;
-	top: 2%;
-	left: 2%;
+	top: 5%;
+	left: 10%;
+	padding: 10px;
 }
 
 .modal-wrap {
@@ -627,7 +630,7 @@ div#board-wrap {
 		position: relative;
 		margin: 0 auto;
 		top: 18%;
-		width: 440px;
+		width: 371px;
 		z-index: 101;
 		label {
 			display: block;
@@ -658,92 +661,7 @@ div#board-wrap {
 	}
 }
 
-/* Landscape phone to portrait tablet */
-@media screen and (max-width: 767px), screen and (max-device-width: 480px)  {
-	#content {
-		width: 480px;
-		height: 320px;
-	}
 
-	body {
-		font-size: 0.5em;
-	}
-
-	#to-lobby {
-		padding: 10px;
-		font-size: 1.3em;
-	}
-
-	.table-requirements {
-		font-size: 1.6em;
-	}
-
-	div.player-wrap {
-		margin: 25% auto 0;
-		&.top {
-    		margin-top: 36%;
-		}
-		&.side {
-    		margin-top: 28%;
-		}
-		.player-cards {
-			left: 8px;
-			height: 25px;
-			&.dealt {
-				top: -25px;
-			}
-		}
-	}
-
-	.card {
-		background-size: 460px auto;
-		width: 32px;
-		height: 47px;
-	}
-
-	#pot {
-		font-size: 1.6em;
-	}
-
-	.bets {
-		font-size: 1.6em;
-	}
-
-	div.row.controls {
-		.chat-cell {
-			display: none;
-		}
-		.cell {
-			width: 20%;
-			button {
-				margin: 15%;
-			}
-		}
-		.double-cell {
-			width: 40%;
-			.cell-content {
-			    padding: 4% 8%;
-			    input[type="range"] {
-				    margin-top: 0;
-				}
-				#bet-input {
-				    margin-top: 5px;
-				}
-			}
-		}
-	}
-
-	.modal-wrap .modal {
-		width: 300px;
-		.input-left {
-			font-size: 2em;
-		}
-	}
-
-	#developer-info {
-		font-size: 1.4em;
-	}
-}
 
 /* Portrait tablet to landscape and desktop */
 @media screen and (min-width: 768px) and (max-width: 1024px) { 
@@ -797,7 +715,7 @@ div#board-wrap {
 	}
 
 	.modal-wrap .modal {
-		width: 320px;
+		width: 371px;
 	}
 
 	#developer-info {
