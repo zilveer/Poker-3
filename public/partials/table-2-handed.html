@@ -8,7 +8,7 @@
 				<span class="table-requirements">You have a total of {{$root.totalChips}} chips</span>
 				<span class="table-requirements error" ng-show="buyInError">{{buyInError}}</span>
 				<input class="form-control" type="number" ng-model="buyInAmount" ng-trim="true" required>
-				<input type="submit" value="Sit in" class="btn btn-primary">
+				<input type="submit" value="Sit in" class="btn">
 			</form>
 		</div>
 		<div id="curtain" ng-show="buyInModalVisible" ng-click="buyInModalVisible=false"></div>
