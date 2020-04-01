@@ -545,7 +545,7 @@ Table.prototype.playerBetted = function( amount ) {
 	this.public.biggestBet = this.public.biggestBet < this.seats[this.public.activeSeat].public.bet ? this.seats[this.public.activeSeat].public.bet : this.public.biggestBet;
 
 	this.log({
-		message: this.seats[this.public.activeSeat].public.name + ' betted ' + amount,
+		message: this.seats[this.public.activeSeat].public.name + ' bet ' + amount,
 		action: 'bet',
 		seat: this.public.activeSeat,
 		notification: 'Bet ' + amount
