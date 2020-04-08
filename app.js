@@ -11,7 +11,7 @@ var express = require('express'),
 	Player = require('./poker_modules/player');
 
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // create "middleware"
 
@@ -41,7 +41,7 @@ var players = [];
 var tables = [];
 var eventEmitter = {};
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 80;
 server.listen(port);
 console.log('Listening on port ' + port);
 
